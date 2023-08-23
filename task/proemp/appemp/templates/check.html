@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Attendance Tracking </title>
+<style>
+    
+  body {
+    background-image: url("https://img.freepik.com/free-vector/character-collection-office-colleagues-big-set-isolated-flat-illustration-wearing-professional-uniform-cartoon-style_1150-37488.jpg");
+    background-repeat: no-repeat;
+    background-size: 1600px 800px;
+    font-family: Arial, sans-serif;
+    background-color: #ab4242;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .attendance-container {
+    background-color: rgb(248, 218, 238);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  #checkin-btn {
+    background-color: #2ecc71;
+  }
+
+  #checkout-btn {
+    background-color: #e74c3c;
+  }
+</style>
+
+</head>
+<body>
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, ul, li {
+            margin: 0;
+            padding: 10px;
+        }
+        
+        /* Style the navigation bar */
+        .navbar {
+            background-color: #7c5defc2;
+            color: rgba(11, 10, 10, 0.824);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-right: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(11, 10, 10, 0.861);
+        }
+        
+        /* Add space for the content below the locked navbar */
+        .content {
+            padding-top: 80px;
+            text-align: center;
+        }
+        
+        .content h1 {
+            margin-bottom: 10px;
+        }
+        
+        .content p {
+            color: #666;
+        }
+        </style>
+        </head>
+        <body>
+            <nav class="navbar">
+                <div class="logo">Attendance System</div>
+                <ul class="nav-links">
+                  <li><a href="{% url 'homepage' %}">Home</a></li>
+                  <li><a href="{% url 'loginpage' %}">Log in</a></li>
+                  <li><a href="{% url 'addmembers' %}">Get Started</a></li>
+                  <li><a href="{% url 'check' %}">Check</a></li>
+                  <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+              </ul>
+            </nav>
+        
+            <div class="content">
+                <!-- Add your main content here -->
+            </div>
+  <div class="attendance-container">
+    {% csrf_token %}
+    <h1>Employee Attendance Tracking </h1>
+    <p>Date: <span id="current-date"></span></p>
+    <p>Check-In Time: <span id="checkin-time"></span></p>
+    <p>Check-Out Time: <span id="checkout-time"></span></p>
+    <button id="checkin-btn">Check-In</button>
+    <button id="checkout-btn">Check-Out</button>
+    <a href="{% url 'dashboard' %}">
+        <button>DASHBOARD</button>
+    </a>
+  </div>
+
+  <script>
+    const currentDateElement = document.getElementById("current-date");
+    const checkinTimeElement = document.getElementById("checkin-time");
+    const checkoutTimeElement = document.getElementById("checkout-time");
+    const checkinButton = document.getElementById("checkin-btn");
+    const checkoutButton = document.getElementById("checkout-btn");
+
+    let checkinTimestamp = null;
+    let checkoutTimestamp = null;
+
+    const updateCurrentDate = () => {
+      const now = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedDate = now.toLocaleDateString(undefined, options);
+      currentDateElement.textContent = formattedDate;
+    };
+
+    const updateCheckinTime = () => {
+      if (checkinTimestamp) {
+        const checkinTime = new Date(checkinTimestamp);
+        const formattedTime = checkinTime.toLocaleTimeString();
+        checkinTimeElement.textContent = formattedTime;
+      }
+    };
+
+    const updateCheckoutTime = () => {
+      if (checkoutTimestamp) {
+        const checkoutTime = new Date(checkoutTimestamp);
+        const formattedTime = checkoutTime.toLocaleTimeString();
+        checkoutTimeElement.textContent = formattedTime;
+      }
+    };
+
+    updateCurrentDate();
+    updateCheckinTime();
+    updateCheckoutTime();
+
+    checkinButton.addEventListener("click", () => {
+      checkinTimestamp = new Date();
+      updateCheckinTime();
+      alert("Checked in successfully!");
+    });
+
+    checkoutButton.addEventListener("click", () => {
+      checkoutTimestamp = new Date();
+      updateCheckoutTime();
+      alert("Checked out successfully!");
+    });
+  </script>
+</body>
+</html>

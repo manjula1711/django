@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Attendance Tracking Dashboard</title>
+<style>
+  /* ... (your existing styles) ... */
+  body{
+    background-image: url('https://www.aihr.com/wp-content/uploads/Cross-training-employees-1000x553-1.png');
+    background-repeat: no-repeat;
+    background-size: 1550px 800px;
+ }
+  .dashboard-table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .dashboard-table th,
+  .dashboard-table td {
+    border: 1px solid #050505;
+    padding: 10px;
+    text-align: center;
+    color:rgba(27, 12, 237, 0.879);
+  }
+
+  .dashboard-table th {
+    background-color: #dadada;
+  }
+</style>
+</head>
+<body>
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, ul, li {
+            margin: 0;
+            padding: 10px;
+        }
+        
+        /* Style the navigation bar */
+        .navbar {
+            background-color: #7c5defc2;
+            color: rgb(16, 15, 15);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-right: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color:rgba(11, 10, 10, 0.842);
+        
+        /* Add space for the content below the locked navbar */
+        .content {
+            padding-top: 80px;
+            text-align: center;
+        }
+        
+        .content h1 {
+            margin-bottom: 10px;
+        }
+        
+        .content p {
+            color: #666;
+        }
+        </style>
+        </head>
+        <body>
+            <nav class="navbar">
+                <div class="logo">Attendance System</div>
+                <ul class="nav-links">
+                  <li><a href="{% url 'homepage' %}">Home</a></li>
+                  <li><a href="{% url 'loginpage' %}">Log in</a></li>
+                  <li><a href="{% url 'addmembers' %}">Get Started</a></li>
+                  <li><a href="{% url 'check' %}">Check</a></li>
+                  <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+              </ul>
+            </nav>
+        
+            <div class="content">
+                <!-- Add your main content here -->
+            </div>
+  <div class="attendance-container">
+    <!-- ... (your existing attendance container) ... -->
+  </div>
+ 
+  <div class="dashboard">
+    <div class="chart-container">
+      <!-- You can add a chart here if needed -->
+    </div>
+    <div class="dashboard-info"><br><br>
+      <center><h2>Attendance Dashboard</h2></center>
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+          </tr>
+        </thead>
+        <tbody id="dashboard-table-body">
+          <!-- Table rows will be added dynamically here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // ... (your existing JavaScript code for attendance tracking) ...
+
+    // Function to add a new row to the table
+    const addTableRow = (date, checkin, checkout) => {
+      const tableBody = document.getElementById("dashboard-table-body");
+      const newRow = tableBody.insertRow();
+      const dateCell = newRow.insertCell(0);
+      const checkinCell = newRow.insertCell(1);
+      const checkoutCell = newRow.insertCell(2);
+
+      dateCell.textContent = date;
+      checkinCell.textContent = checkin || "-";
+      checkoutCell.textContent = checkout || "-";
+    };
+
+    // Example data (replace with real attendance data)
+    addTableRow("2023-08-15", "08:30", "17:30");
+    addTableRow("2023-08-16", "08:45", "18:00");
+    addTableRow("2023-08-17", "08:50", "18:30");
+    addTableRow("2023-08-18", "08:20", "17:00");
+    addTableRow("2023-08-19", "08:56", "18:30");
+    addTableRow("2023-08-20", "08:30", "16:00");
+    // Add more rows as needed
+  </script>
+</body>
+</html>

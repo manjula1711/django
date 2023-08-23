@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance Tracker</title>
+    <style>
+        
+        body {
+            background-image: url('https://blog.vantagecircle.com/content/images/2019/12/Employee-Performance.jpg'); /* Replace with the actual path to your image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .button{
+            padding: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero-section h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .hero-section p {
+            font-size: 18px;
+            color: rgba(0, 0, 0, 0.578);
+        }
+        .btn-primary {
+            background-color: #35424a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #2a3c46;
+        }
+    </style>
+</head>
+<body>
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, ul, li {
+            margin: 0;
+            padding: 10px;
+        }
+        
+        /* Style the navigation bar */
+        .navbar {
+            background-color: #7c5defc2;
+            color: rgb(18, 13, 13);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-right: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: rgb(25, 24, 24);
+        }
+        
+        /* Add space for the content below the locked navbar */
+        .content {
+            padding-top: 80px;
+            text-align: center;
+        }
+        
+        .content h1 {
+            margin-bottom: 10px;
+        }
+        
+        .content p {
+            color: #380c0c;
+        }
+        </style>
+        </head>
+        <body>
+            <nav class="navbar">
+                <div class="logo">Attendance System</div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'homepage' %}">Home</a></li>
+                    <li><a href="{% url 'loginpage' %}">Log in</a></li>
+                    <li><a href="{% url 'addmembers' %}">Get Started</a></li>
+                    <li><a href="{% url 'check' %}">Check</a></li>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                </ul>
+                
+            </nav>
+        
+            <div class="content">
+                <!-- Add your main content here -->
+            </div>
+    
+
+    <div class="container">
+        <div class="hero-section">
+        
+            <h1>Welcome to Our Attendance Tracker System</h1>
+            <p>Efficiently manage and track employee attendance with our user-friendly system.</p>
+            <a href="{% url 'loginpage' %}" class="btn-primary">Log in</a>
+           
+            
+            <a href="{% url 'addmembers' %}" class="btn-primary">Get Started </a>
+        </div>
+    </div>
+</body>
+</html>

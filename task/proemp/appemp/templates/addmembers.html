@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Members - Employee Attendance Tracker</title>
+    <style>
+        body {
+            background-image: url('https://media.licdn.com/dms/image/D5612AQFWKwYoFdW4Xw/article-cover_image-shrink_720_1280/0/1659044957982?e=2147483647&v=beta&t=2QFHBAhtTGSr7xjnKUVjHJF3jT6n92j7njg6FTHDva4'); /* Replace with the actual path to your image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .add-members-section {
+           
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+            max-width: 400px;
+            margin: auto;
+        }
+        .add-members-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #29363d;
+        }
+    </style>
+</head>
+<body>
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, ul, li {
+            margin: 0;
+            padding: 10px;
+        }
+        
+        /* Style the navigation bar */
+        .navbar {
+            background-color: #7c5defc2;
+            color: rgba(12, 12, 12, 0.884);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-right: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(23, 22, 22, 0.861);
+        }
+        
+        /* Add space for the content below the locked navbar */
+        .content {
+            padding-top: 80px;
+            text-align: center;
+        }
+        
+        .content h1 {
+            margin-bottom: 10px;
+        }
+        
+        .content p {
+            color: #666666;
+        }
+        </style>
+        </head>
+        <body>
+            <nav class="navbar">
+                <div class="logo">Attendance System</div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'homepage' %}">Home</a></li>
+                    <li><a href="{% url 'loginpage' %}">Log in</a></li>
+                    <li><a href="{% url 'addmembers' %}">Get Started</a></li>
+                    <li><a href="{% url 'check' %}">Check</a></li>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                </ul>
+            </nav>
+        
+            <div class="content">
+                <!-- Add your main content here -->
+            </div>
+    <div class="container">
+        <div class="add-members-section">
+            <h2>Add Members</h2>
+            <form action="" method="POST">
+            {% csrf_token %}
+                <div class="input-group">
+                    <label for="name">First Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="name">Last Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="name">Username:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="name">Password:</label> 
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="position">Position:</label>
+                    <input type="text" id="position" name="position" required>
+                </div>
+                </form>
+                <a href="{% url 'loginpage' %}" class="btn-primary"><button type="submit" class="btn-primary">Add Member</button></a>
+            
+        </div>
+    </div>
+</body>
+</html>
